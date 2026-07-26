@@ -1,0 +1,8 @@
+Sorting and Search After
+
+Return first page of available products sorted by price desc then product_id asc. Return 3 docs then write a second request using search_after.
+
+====================
+YOUR ANSWER
+====================
+

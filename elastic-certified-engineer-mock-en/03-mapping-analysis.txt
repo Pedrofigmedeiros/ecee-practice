@@ -1,0 +1,8 @@
+Mappings and Analysis
+
+Create products_exam_v2 with lowercase_normalizer, product_name_analyzer, scaled_float price (100), half_float dimensions, dynamic strict.
+
+====================
+YOUR ANSWER
+====================
+

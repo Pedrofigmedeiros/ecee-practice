@@ -1,0 +1,8 @@
+Multi Match Query
+
+Search 'professional cordless drill' using best_fields over name^4, description^2 and tags, operator AND, tie_breaker 0.3, exclude discontinued, return top 5.
+
+====================
+YOUR ANSWER
+====================
+

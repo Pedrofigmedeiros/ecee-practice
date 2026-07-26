@@ -1,0 +1,8 @@
+Date Range Aggregation
+
+Create a date_range aggregation named products_by_period on created_at with buckets before_march, spring_launches and recent_launches. Add average_price, highest_rating and available_products subaggregations. Return no hits.
+
+====================
+YOUR ANSWER
+====================
+

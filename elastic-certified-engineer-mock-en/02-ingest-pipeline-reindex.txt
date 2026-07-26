@@ -1,0 +1,8 @@
+Ingest Pipeline and Reindex
+
+Create normalize_products_pipeline. Create inventory.available, inventory.quantity, processed_at, remove stock, add source_system='certification_exam'. Reindex products_exam into products_normalized.
+
+====================
+YOUR ANSWER
+====================
+

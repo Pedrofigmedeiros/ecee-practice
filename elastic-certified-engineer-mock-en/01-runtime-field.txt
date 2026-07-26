@@ -1,0 +1,8 @@
+Runtime Field
+
+Create a runtime field named availability_status that returns out_of_stock, low_stock or available based on stock. Search only power_tools, do not return _source, return product_id, name, stock and availability_status, sort by stock ascending.
+
+====================
+YOUR ANSWER
+====================
+

@@ -1,0 +1,61 @@
+SETUP
+
+DELETE products_exam
+DELETE products_normalized
+DELETE products_archive
+DELETE products_exam_v2
+
+Ignore 404 responses.
+
+PUT products_exam
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "product_id":{"type":"keyword"},
+      "name":{"type":"text","fields":{"keyword":{"type":"keyword"}}},
+      "description":{"type":"text"},
+      "brand":{"type":"keyword"},
+      "category":{"type":"keyword"},
+      "price":{"type":"double"},
+      "stock":{"type":"integer"},
+      "rating":{"type":"float"},
+      "discontinued":{"type":"boolean"},
+      "created_at":{"type":"date"},
+      "dimensions":{"properties":{"width_cm":{"type":"double"},"height_cm":{"type":"double"}}},
+      "tags":{"type":"keyword"}
+    }
+  }
+}
+
+POST _bulk
+{"index":{"_index":"products_exam","_id":"1"}}
+{"product_id":"P-1001","name":"Bosch Professional Cordless Drill","description":"Professional cordless drill with two batteries and carrying case","brand":"Bosch","category":"power_tools","price":249.90,"stock":14,"rating":4.8,"discontinued":false,"created_at":"2025-01-15T09:30:00Z","dimensions":{"width_cm":28.5,"height_cm":22.0},"tags":["cordless","professional","drill"]}
+{"index":{"_index":"products_exam","_id":"2"}}
+{"product_id":"P-1002","name":"Makita Compact Impact Drill","description":"Compact impact drill designed for home renovation projects","brand":"Makita","category":"power_tools","price":179.50,"stock":8,"rating":4.5,"discontinued":false,"created_at":"2025-02-10T11:15:00Z","dimensions":{"width_cm":25.0,"height_cm":20.5},"tags":["compact","impact","drill"]}
+{"index":{"_index":"products_exam","_id":"3"}}
+{"product_id":"P-1003","name":"DeWalt Heavy Duty Hammer Drill","description":"Heavy duty hammer drill for concrete and masonry","brand":"DeWalt","category":"power_tools","price":329.99,"stock":5,"rating":4.7,"discontinued":false,"created_at":"2025-03-05T14:45:00Z","dimensions":{"width_cm":34.0,"height_cm":24.0},"tags":["hammer","concrete","professional"]}
+{"index":{"_index":"products_exam","_id":"4"}}
+{"product_id":"P-1004","name":"Bosch Electric Screwdriver","description":"Lightweight electric screwdriver for furniture assembly","brand":"Bosch","category":"power_tools","price":89.90,"stock":0,"rating":4.2,"discontinued":false,"created_at":"2025-03-22T08:20:00Z","dimensions":{"width_cm":18.0,"height_cm":16.0},"tags":["screwdriver","lightweight","home"]}
+{"index":{"_index":"products_exam","_id":"5"}}
+{"product_id":"P-1005","name":"Stanley Claw Hammer","description":"Steel claw hammer with anti vibration handle","brand":"Stanley","category":"hand_tools","price":34.90,"stock":35,"rating":4.4,"discontinued":false,"created_at":"2025-04-01T10:00:00Z","dimensions":{"width_cm":32.0,"height_cm":12.0},"tags":["hammer","steel","manual"]}
+{"index":{"_index":"products_exam","_id":"6"}}
+{"product_id":"P-1006","name":"Bosch Professional Circular Saw","description":"Professional circular saw for precise wood cutting","brand":"Bosch","category":"power_tools","price":289.00,"stock":9,"rating":4.9,"discontinued":false,"created_at":"2025-04-18T16:10:00Z","dimensions":{"width_cm":40.0,"height_cm":26.0},"tags":["saw","wood","professional"]}
+{"index":{"_index":"products_exam","_id":"7"}}
+{"product_id":"P-1007","name":"Black and Decker Cordless Drill","description":"Affordable cordless drill suitable for occasional household use","brand":"Black and Decker","category":"power_tools","price":119.99,"stock":18,"rating":4.0,"discontinued":false,"created_at":"2025-05-09T12:40:00Z","dimensions":{"width_cm":27.0,"height_cm":21.0},"tags":["cordless","drill","home"]}
+{"index":{"_index":"products_exam","_id":"8"}}
+{"product_id":"P-1008","name":"Makita Professional Angle Grinder","description":"Professional angle grinder for cutting and grinding metal","brand":"Makita","category":"power_tools","price":199.00,"stock":3,"rating":4.6,"discontinued":false,"created_at":"2025-05-27T15:30:00Z","dimensions":{"width_cm":38.0,"height_cm":14.0},"tags":["grinder","metal","professional"]}
+{"index":{"_index":"products_exam","_id":"9"}}
+{"product_id":"P-1009","name":"DeWalt Cordless Drill Old Edition","description":"Previous generation cordless drill with carrying case","brand":"DeWalt","category":"power_tools","price":149.90,"stock":0,"rating":3.9,"discontinued":true,"created_at":"2024-11-20T09:10:00Z","dimensions":{"width_cm":29.0,"height_cm":22.5},"tags":["cordless","drill","legacy"]}
+{"index":{"_index":"products_exam","_id":"10"}}
+{"product_id":"P-1010","name":"Stanley Measuring Tape 8m","description":"Eight meter measuring tape with reinforced housing","brand":"Stanley","category":"measuring_tools","price":19.90,"stock":60,"rating":4.3,"discontinued":false,"created_at":"2025-06-02T07:50:00Z","dimensions":{"width_cm":9.0,"height_cm":8.0},"tags":["measurement","tape","manual"]}
+{"index":{"_index":"products_exam","_id":"11"}}
+{"product_id":"P-1011","name":"Bosch Laser Distance Meter","description":"Digital laser measuring device for indoor construction projects","brand":"Bosch","category":"measuring_tools","price":139.00,"stock":11,"rating":4.7,"discontinued":false,"created_at":"2025-06-14T13:25:00Z","dimensions":{"width_cm":12.0,"height_cm":5.0},"tags":["laser","measurement","digital"]}
+{"index":{"_index":"products_exam","_id":"12"}}
+{"product_id":"P-1012","name":"Makita Industrial Rotary Hammer","description":"Industrial rotary hammer for demanding concrete work","brand":"Makita","category":"power_tools","price":599.00,"stock":2,"rating":4.9,"discontinued":false,"created_at":"2025-07-01T17:00:00Z","dimensions":{"width_cm":48.0,"height_cm":31.0},"tags":["rotary","hammer","industrial"]}
+
+GET products_exam/_count
+Expected: 12

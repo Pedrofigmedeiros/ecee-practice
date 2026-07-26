@@ -1,0 +1,8 @@
+Boolean Search
+
+Search drill products under $300 in power_tools, exclude discontinued, prefer Bosch(boost 3) and professional tag(boost2), return top10 sorted by score then rating.
+
+====================
+YOUR ANSWER
+====================
+

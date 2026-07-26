@@ -1,0 +1,8 @@
+Component and Index Templates
+
+Create component template catalog_event_mappings and index template catalog_events_template with alias catalog-events, priority 250 and simulate catalog-events-2026.01.
+
+====================
+YOUR ANSWER
+====================
+

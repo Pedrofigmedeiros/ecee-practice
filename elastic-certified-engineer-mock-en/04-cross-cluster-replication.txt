@@ -1,0 +1,8 @@
+Cross-Cluster Replication
+
+Create follower index products_archive from remote cluster production_cluster leader index products-production. max_read_request_operation_count=256, max_outstanding_read_requests=8. Verify follower stats.
+
+====================
+YOUR ANSWER
+====================
+

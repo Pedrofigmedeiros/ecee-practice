@@ -1,0 +1,8 @@
+Snapshot Lifecycle Management
+
+Create hourly_products_policy scheduled at minute 15 every hour using repository exam_repository, snapshot prefix products-snapshot-, include products_exam and products_normalized, ignore unavailable, exclude global state, retention 7 days, min 3 max 48.
+
+====================
+YOUR ANSWER
+====================
+
