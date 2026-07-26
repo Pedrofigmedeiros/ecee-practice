@@ -5,4 +5,3 @@ Create products_exam_v2 with lowercase_normalizer, product_name_analyzer, scaled
 ====================
 YOUR ANSWER
 ====================
-

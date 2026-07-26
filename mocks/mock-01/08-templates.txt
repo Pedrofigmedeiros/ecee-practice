@@ -5,4 +5,3 @@ Create component template catalog_event_mappings and index template catalog_even
 ====================
 YOUR ANSWER
 ====================
-

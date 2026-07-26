@@ -5,4 +5,3 @@ Create a runtime field named availability_status that returns out_of_stock, low_
 ====================
 YOUR ANSWER
 ====================
-

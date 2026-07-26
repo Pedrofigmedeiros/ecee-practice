@@ -5,4 +5,3 @@ Create normalize_products_pipeline. Create inventory.available, inventory.quanti
 ====================
 YOUR ANSWER
 ====================
-

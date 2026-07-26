@@ -5,4 +5,3 @@ Create follower index products_archive from remote cluster production_cluster le
 ====================
 YOUR ANSWER
 ====================
-

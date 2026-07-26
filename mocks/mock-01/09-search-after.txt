@@ -5,4 +5,3 @@ Return first page of available products sorted by price desc then product_id asc
 ====================
 YOUR ANSWER
 ====================
-

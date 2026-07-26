@@ -5,4 +5,3 @@ Search 'professional cordless drill' using best_fields over name^4, description^
 ====================
 YOUR ANSWER
 ====================
-
