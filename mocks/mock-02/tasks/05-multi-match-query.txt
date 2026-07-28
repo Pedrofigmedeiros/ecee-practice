@@ -1,0 +1,20 @@
+Task 05 - Multi-match Query
+
+Scenario
+The search feature must find products using both the title and the description.
+Matches in the title must have greater relevance.
+
+Task
+Search for the text "electric drill" in the products index.
+
+Requirements
+- Use a multi_match query.
+- Search the following fields: title, description.
+- Apply a boost of 3 to the title field.
+- Use the OR operator.
+- Require at least 50% of the terms to match.
+- Return: title, description, brand, price.
+
+====================
+YOUR ANSWER
+====================

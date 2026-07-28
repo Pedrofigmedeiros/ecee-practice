@@ -1,0 +1,19 @@
+Task 01 - Runtime Field
+
+Scenario
+The products index stores the original product price in the price field.
+The application needs to display a discounted price without modifying the stored documents.
+
+Task
+Run a search against the products index and create a runtime field named discounted_price.
+
+Requirements
+- The field must be of type double.
+- The value must represent a 10% discount applied to price.
+- Return only: title, price, discounted_price.
+- Sort the results by discounted_price in ascending order.
+- Return the first 10 documents.
+
+====================
+YOUR ANSWER
+====================

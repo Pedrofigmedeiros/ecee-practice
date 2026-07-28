@@ -1,0 +1,23 @@
+Task 10 - Boolean Query
+
+Scenario
+A user is looking for available professional tools but does not want discontinued products or products from certain brands.
+
+Task
+Run a search against the products index.
+
+Requirements
+The query must:
+- Search for the term drill in title and description.
+- Require category to be equal to tools.
+- Require available to be equal to true.
+- Require stock to be greater than or equal to 5.
+- Exclude documents where discontinued is equal to true.
+- Exclude products from the following brands: Worker, Black+Decker.
+- Give greater relevance to products from the following brands: Bosch, Makita.
+- Return the first 10 results.
+- Sort first by relevance and then by rating in descending order.
+
+====================
+YOUR ANSWER
+====================

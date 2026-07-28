@@ -1,0 +1,19 @@
+Task 02 - Ingest Pipeline
+
+Scenario
+A new version of the index must store brand names in uppercase and add a processing timestamp.
+
+Task
+Create an ingest pipeline named products_normalization.
+
+Requirements
+The pipeline must:
+- Convert the brand field to uppercase.
+- Create the processed_at field using the value {{{_ingest.timestamp}}}.
+- Create the products_v2 index with the same relevant mappings as products.
+- Reindex the documents from products into products_v2 using the pipeline.
+- Verify that the documents were processed correctly.
+
+====================
+YOUR ANSWER
+====================

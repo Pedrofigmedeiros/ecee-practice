@@ -1,0 +1,23 @@
+Task 06 - Snapshot Lifecycle Management
+
+Scenario
+The products index must be protected by automated snapshots.
+Assume that a snapshot repository named products_repository already exists.
+
+Task
+Create an SLM policy named daily-products-snapshots.
+
+Requirements
+- Run the policy every day at 02:30.
+- Use the products_repository repository.
+- The snapshot name must start with products-snapshot-.
+- Include only indices matching products*.
+- Ignore unavailable indices.
+- Include the global cluster state.
+- Retain snapshots for 30 days.
+- Keep at least 5 snapshots.
+- Keep at most 20 snapshots.
+
+====================
+YOUR ANSWER
+====================

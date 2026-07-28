@@ -1,0 +1,28 @@
+Task 03 - Index Mapping
+
+Scenario
+A new version of the catalog must support full-text search, aggregations, and supplier information.
+
+Task
+Create an index named products_catalog_v1.
+
+Requirements
+Configure the following fields:
+- product_id: keyword
+- title: text with a keyword subfield
+- description: text
+- brand: keyword
+- category: keyword
+- price: scaled_float with a scaling_factor of 100
+- stock: integer
+- available: boolean
+- created_at: date
+- supplier:
+  - name: text with a keyword subfield
+  - country: keyword
+
+Disable dynamic mappings to prevent undefined fields from being created automatically.
+
+====================
+YOUR ANSWER
+====================

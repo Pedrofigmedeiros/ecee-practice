@@ -1,0 +1,20 @@
+Task 04 - Reindex with Script
+
+Scenario
+The products must be migrated to a new version of the index.
+During the migration, the structure of some fields must be changed.
+
+Task
+Create the index products_v3 and reindex the documents from products.
+
+Requirements
+During the reindex operation:
+- Rename title to product_name.
+- Rename created_at to created_date.
+- Create the inventory_value field by multiplying price and stock.
+- Remove the description field.
+- Reindex only documents where available is equal to true.
+
+====================
+YOUR ANSWER
+====================

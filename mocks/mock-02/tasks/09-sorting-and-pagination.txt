@@ -1,0 +1,19 @@
+Task 09 - Sorting and Pagination
+
+Scenario
+The application must display available products sorted by rating and price.
+Pagination must work without using from.
+
+Task
+Run the first page of results against the products index.
+
+Requirements
+- Return only products where available is equal to true and stock is greater than 0.
+- Return 5 documents.
+- Sort by: rating descending, price ascending, _id ascending.
+- Return: title, brand, price, rating.
+- Run a second search using search_after to retrieve the next page.
+
+====================
+YOUR ANSWER
+====================

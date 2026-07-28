@@ -1,0 +1,22 @@
+Task 07 - Aggregations
+
+Scenario
+The commercial team needs to analyze prices and availability by category.
+
+Task
+Run a search against the products index without returning individual documents.
+
+Requirements
+Create an aggregation by category. For each category, return:
+- The number of products.
+- The average price.
+- The minimum price.
+- The maximum price.
+- The total stock.
+- The number of available products.
+
+Sort the categories by average price in descending order.
+
+====================
+YOUR ANSWER
+====================

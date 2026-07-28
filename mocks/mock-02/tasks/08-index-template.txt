@@ -1,0 +1,26 @@
+Task 08 - Index Template
+
+Scenario
+New versions of the catalog will be created with names matching catalog-products-*.
+
+Task
+Create an index template named catalog-products-template.
+
+Requirements
+- Use the pattern catalog-products-*.
+- Configure: 1 primary shard, 0 replicas, refresh_interval set to 30s.
+- Define the following fields:
+  - id: keyword
+  - title: text with a keyword subfield
+  - brand: keyword
+  - category: keyword
+  - price: double
+  - available: boolean
+  - created_at: date
+- Set the template priority to 200.
+- Create the index catalog-products-000001.
+- Verify that the template was applied.
+
+====================
+YOUR ANSWER
+====================
