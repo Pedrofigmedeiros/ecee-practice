@@ -1,0 +1,44 @@
+Task 06 - Snapshot Lifecycle Management
+
+Scenario
+The catalog indices must be protected by automated weekly snapshots.
+Assume that a snapshot repository named streaming_repository already exists.
+
+Task
+Create an SLM policy named weekly-streaming-snapshots.
+
+Requirements
+- Run the policy every Sunday at 03:00.
+- Use the streaming_repository repository.
+- The snapshot name must start with streaming-snap-.
+- Include only indices matching streaming_catalog*.
+- Ignore unavailable indices.
+- Exclude the global cluster state.
+- Retain snapshots for 10 days.
+- Keep at least 4 snapshots.
+- Keep at most 30 snapshots.
+
+====================
+PUT _snapshot/weekly-streaming-snapshots
+{
+  "type": "fs",
+  "settings": {
+    "location": "my_unverified_backup_location"
+  }
+}
+
+PUT _slm/policy/nightly-snapshots
+{
+  "schedule": "0 0 3 * * 7",
+  "name": "<streaming-snap-{now/d}>",
+  "repository": "streaming_repository",
+  "config": {
+    "indices": "streaming_catalog*",
+    "ignore_unavailable": true
+  },
+  "retention": {
+    "expire_after": "10d",
+    "min_count": 4,
+    "max_count": 30
+  }
+}====================

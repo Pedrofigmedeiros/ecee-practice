@@ -1,0 +1,68 @@
+SETUP
+
+DELETE streaming_catalog
+DELETE streaming_catalog_v2
+DELETE streaming_catalog_v3
+DELETE streaming_archive
+
+Ignore 404 responses.
+
+PUT streaming_catalog
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "content_id":{"type":"keyword"},
+      "title":{"type":"text","fields":{"keyword":{"type":"keyword"}}},
+      "synopsis":{"type":"text"},
+      "genre":{"type":"keyword"},
+      "content_type":{"type":"keyword"},
+      "director":{"type":"keyword"},
+      "duration_minutes":{"type":"integer"},
+      "imdb_rating":{"type":"float"},
+      "release_date":{"type":"date"},
+      "available":{"type":"boolean"},
+      "removed":{"type":"boolean"},
+      "views_millions":{"type":"double"},
+      "studio":{"type":"keyword"},
+      "cast":{"type":"keyword"},
+      "maturity_rating":{"type":"keyword"}
+    }
+  }
+}
+
+POST _bulk
+{"index":{"_index":"streaming_catalog","_id":"1"}}
+{"content_id":"SC-4001","title":"Silent Horizon","synopsis":"A crew ventures beyond known space to find a new home for humanity","genre":"sci-fi","content_type":"movie","director":"Ava Nolan","duration_minutes":128,"imdb_rating":8.4,"release_date":"2023-05-12","available":true,"removed":false,"views_millions":245.6,"studio":"Nova Pictures","cast":["Elena Cruz","Marcus Wei"],"maturity_rating":"PG-13"}
+{"index":{"_index":"streaming_catalog","_id":"2"}}
+{"content_id":"SC-4002","title":"Crimson Tide Rising","synopsis":"A special forces unit races against time to stop a coastal invasion","genre":"action","content_type":"movie","director":"Jonah Blake","duration_minutes":112,"imdb_rating":7.6,"release_date":"2022-11-03","available":true,"removed":false,"views_millions":189.2,"studio":"Titan Films","cast":["Ryan Cole","Sofia Martins"],"maturity_rating":"PG-13"}
+{"index":{"_index":"streaming_catalog","_id":"3"}}
+{"content_id":"SC-4003","title":"The Long Winter","synopsis":"A family struggles to survive an unforgiving season in rural isolation","genre":"drama","content_type":"movie","director":"Helena Ford","duration_minutes":140,"imdb_rating":8.9,"release_date":"2021-02-18","available":true,"removed":false,"views_millions":98.4,"studio":"A24 Light","cast":["Grace Lin","Oscar Diaz"],"maturity_rating":"R"}
+{"index":{"_index":"streaming_catalog","_id":"4"}}
+{"content_id":"SC-4004","title":"Laugh Track","synopsis":"A stand-up comedian navigates fame and family in this workplace sitcom","genre":"comedy","content_type":"series","director":"Danny Ruiz","duration_minutes":25,"imdb_rating":7.1,"release_date":"2024-01-09","available":true,"removed":false,"views_millions":320.7,"studio":"Nova Pictures","cast":["Mia Chen"],"maturity_rating":"PG"}
+{"index":{"_index":"streaming_catalog","_id":"5"}}
+{"content_id":"SC-4005","title":"Ocean's Silence","synopsis":"An intimate look at the deep sea creatures thriving in total darkness","genre":"documentary","content_type":"documentary","director":"Priya Nair","duration_minutes":95,"imdb_rating":8.2,"release_date":"2020-09-30","available":true,"removed":false,"views_millions":45.3,"studio":"BlueWave Docs","cast":[],"maturity_rating":"PG"}
+{"index":{"_index":"streaming_catalog","_id":"6"}}
+{"content_id":"SC-4006","title":"Nightfall Protocol","synopsis":"An intelligence officer uncovers a conspiracy that threatens the city at night","genre":"thriller","content_type":"movie","director":"Jonah Blake","duration_minutes":118,"imdb_rating":7.8,"release_date":"2023-08-22","available":true,"removed":false,"views_millions":210.9,"studio":"Titan Films","cast":["Ryan Cole","Elena Cruz"],"maturity_rating":"R"}
+{"index":{"_index":"streaming_catalog","_id":"7"}}
+{"content_id":"SC-4007","title":"War of Embers","synopsis":"Two rival kingdoms clash in an epic war fought with fire and steel","genre":"action","content_type":"movie","director":"Christopher Wren","duration_minutes":150,"imdb_rating":8.7,"release_date":"2022-06-14","available":true,"removed":false,"views_millions":410.5,"studio":"Nova Pictures","cast":["Marcus Wei","Grace Lin"],"maturity_rating":"R"}
+{"index":{"_index":"streaming_catalog","_id":"8"}}
+{"content_id":"SC-4008","title":"Quiet Suburbs","synopsis":"Neighbors hide long buried secrets behind their perfectly trimmed lawns","genre":"drama","content_type":"series","director":"Helena Ford","duration_minutes":42,"imdb_rating":8.1,"release_date":"2023-03-01","available":true,"removed":false,"views_millions":156.8,"studio":"A24 Light","cast":["Oscar Diaz","Mia Chen"],"maturity_rating":"TV-MA"}
+{"index":{"_index":"streaming_catalog","_id":"9"}}
+{"content_id":"SC-4009","title":"The Haunting Below","synopsis":"A family discovers something sinister living beneath their new home","genre":"horror","content_type":"movie","director":"Ingrid Voss","duration_minutes":105,"imdb_rating":6.9,"release_date":"2019-10-31","available":true,"removed":false,"views_millions":88.1,"studio":"ShadowPeak","cast":["Sofia Martins"],"maturity_rating":"R"}
+{"index":{"_index":"streaming_catalog","_id":"10"}}
+{"content_id":"SC-4010","title":"Retired Space Marshal","synopsis":"An aging marshal is called back for one final mission among the stars","genre":"sci-fi","content_type":"movie","director":"Ava Nolan","duration_minutes":132,"imdb_rating":6.5,"release_date":"2018-04-05","available":false,"removed":true,"views_millions":30.2,"studio":"Nova Pictures","cast":["Elena Cruz"],"maturity_rating":"PG-13"}
+{"index":{"_index":"streaming_catalog","_id":"11"}}
+{"content_id":"SC-4011","title":"War Echoes: The Forgotten Front","synopsis":"A war correspondent captures the human cost of a decades long conflict","genre":"action","content_type":"movie","director":"Christopher Wren","duration_minutes":160,"imdb_rating":8.9,"release_date":"2024-02-20","available":true,"removed":false,"views_millions":512.3,"studio":"Nova Pictures","cast":["Marcus Wei","Ryan Cole"],"maturity_rating":"R"}
+{"index":{"_index":"streaming_catalog","_id":"12"}}
+{"content_id":"SC-4012","title":"Bright Comedy Hour","synopsis":"A sketch comedy anthology poking fun at everyday office life","genre":"comedy","content_type":"series","director":"Danny Ruiz","duration_minutes":22,"imdb_rating":6.8,"release_date":"2020-07-15","available":true,"removed":false,"views_millions":75.4,"studio":"Titan Films","cast":["Mia Chen","Oscar Diaz"],"maturity_rating":"PG"}
+{"index":{"_index":"streaming_catalog","_id":"13"}}
+{"content_id":"SC-4013","title":"Reef Whispers","synopsis":"A journey through the coral reefs revealing fragile underwater ecosystems","genre":"documentary","content_type":"documentary","director":"Priya Nair","duration_minutes":88,"imdb_rating":8.5,"release_date":"2023-11-11","available":true,"removed":false,"views_millions":62.9,"studio":"BlueWave Docs","cast":[],"maturity_rating":"PG"}
+{"index":{"_index":"streaming_catalog","_id":"14"}}
+{"content_id":"SC-4014","title":"Cold Case Files: Season One","synopsis":"A detective reopens a decades old war era murder investigation","genre":"thriller","content_type":"series","director":"Ingrid Voss","duration_minutes":48,"imdb_rating":8.0,"release_date":"2024-05-30","available":true,"removed":false,"views_millions":190.1,"studio":"ShadowPeak","cast":["Sofia Martins","Grace Lin"],"maturity_rating":"TV-MA"}
+
+GET streaming_catalog/_count
+Expected: 14

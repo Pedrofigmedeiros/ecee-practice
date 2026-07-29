@@ -1,0 +1,105 @@
+Task 02 - Ingest Pipeline
+
+Scenario
+A new version of the catalog must store genres in uppercase and record when each document was processed.
+
+Task
+Create an ingest pipeline named catalog_normalization.
+
+Requirements
+The pipeline must:
+- Convert the genre field to uppercase.
+- Create the processed_at field using the value {{{_ingest.timestamp}}}.
+- Create the streaming_catalog_v2 index with the same relevant mappings as streaming_catalog.
+- Reindex the documents from streaming_catalog into streaming_catalog_v2 using the pipeline.
+- Verify that the documents were processed correctly.
+
+====================
+PUT _ingest/pipeline/catalog_normalization
+{
+  "processors": [
+    {
+      "uppercase": {
+        "field": "genre"
+      }
+    },
+    {
+      "set": {
+        "field": "processed_at",
+        "value": "{{_ingest.timestamp}}"
+      }
+    }
+  ]
+}
+
+GET streaming_catalog_v2/_search
+
+POST _reindex
+{
+  "source": {
+    "index": "streaming_catalog"
+  },
+  "dest": {
+    "index": "streaming_catalog_v2",
+    "pipeline": "catalog_normalization"
+  }
+}
+
+PUT streaming_catalog_v2
+{
+  "mappings": {
+    "properties": {
+      "available": {
+        "type": "boolean"
+      },
+      "cast": {
+        "type": "keyword"
+      },
+      "content_id": {
+        "type": "keyword"
+      },
+      "content_type": {
+        "type": "keyword"
+      },
+      "director": {
+        "type": "keyword"
+      },
+      "duration_minutes": {
+        "type": "integer"
+      },
+      "genre": {
+        "type": "keyword"
+      },
+      "imdb_rating": {
+        "type": "float"
+      },
+      "maturity_rating": {
+        "type": "keyword"
+      },
+      "release_date": {
+        "type": "date"
+      },
+      "removed": {
+        "type": "boolean"
+      },
+      "studio": {
+        "type": "keyword"
+      },
+      "synopsis": {
+        "type": "text"
+      },
+      "title": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "views_millions": {
+        "type": "double"
+      }
+    }
+  }
+}
+====================

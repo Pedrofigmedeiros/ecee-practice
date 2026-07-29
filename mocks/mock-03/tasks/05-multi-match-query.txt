@@ -1,0 +1,19 @@
+Task 05 - Multi-match Query
+
+Scenario
+The search feature must find titles using both the title and the synopsis. Matches in the title must have greater relevance.
+
+Task
+Search for the text "space adventure" in the streaming_catalog index.
+
+Requirements
+- Use a multi_match query.
+- Search the following fields: title, synopsis.
+- Apply a boost of 3 to the title field.
+- Use the OR operator.
+- Require at least 60% of the terms to match.
+- Return: title, genre, imdb_rating.
+
+====================
+YOUR ANSWER
+====================

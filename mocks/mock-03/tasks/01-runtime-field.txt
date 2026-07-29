@@ -1,0 +1,56 @@
+Task 01 - Runtime Field
+
+Scenario
+The streaming_catalog index stores the total views (in millions) for each title in the views_millions field.
+The content team needs to classify titles by popularity without changing the stored documents.
+
+Task
+Run a search against the streaming_catalog index and create a runtime field named popularity_tier.
+
+Requirements
+- The field must be of type keyword.
+- Return "viral" when views_millions is greater than or equal to 300.
+- Return "popular" when views_millions is greater than or equal to 100 and less than 300.
+- Return "niche" for anything below 100.
+- Search only documents where content_type is equal to movie.
+- Return only: content_id, title, views_millions, popularity_tier.
+- Sort the results by views_millions in descending order.
+- Return the first 10 documents.
+
+====================
+GET streaming_catalog/_search
+{
+  "sort": [
+    {
+      "views_millions": {
+        "order": "desc"
+      }
+    }
+  ],
+  "from": 0,
+  "size": 10,
+  "_source": [
+    "content_id",
+    "title",
+    "views_millions",
+    "popularity_tier"
+  ],
+  "runtime_mappings": {
+    "popularity_tier": {
+      "type": "keyword",
+      "script": {
+        "source": """if (doc['views_millions'].value >= 300) {emit('viral');}
+          else if (doc['views_millions'].value < 300 && doc['views_millions'].value > 100)
+          {emit('popular');}
+          else {emit('niche');}"""
+      }
+    }
+  },
+  "query": {
+    "term": {
+      "content_type": {
+        "value": "movie"
+      }
+    }
+  }
+}====================

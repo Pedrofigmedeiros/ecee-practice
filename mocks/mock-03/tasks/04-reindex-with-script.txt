@@ -1,0 +1,35 @@
+Task 04 - Reindex with Script
+
+Scenario
+The catalog must be migrated to a new version of the index. During the migration, the structure of some fields must be changed.
+
+Task
+Create the index streaming_catalog_v3 and reindex the documents from streaming_catalog.
+
+Requirements
+During the reindex operation:
+- Rename cast to starring.
+- Rename release_date to released_on.
+- Create the runtime_hours field by dividing duration_minutes by 60.
+- Remove the synopsis field.
+- Reindex only documents where available is equal to true.
+
+====================
+POST _reindex
+{
+  "source": {
+    "index": "streaming_catalog"
+  },
+  "dest": {
+    "index": "streaming_catalog_v3"
+  },
+  "script": {
+    "source": """
+      ctx._source.cast = ctx._source.starring;
+      ctx._source.release_date = ctx._source.release_on;
+      ctx._source.runtime_hours = ctx._source.runtime_minutes / 60;
+      ctx._source.synopsis.remove();
+
+    """
+  }
+}====================

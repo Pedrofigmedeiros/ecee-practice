@@ -1,0 +1,83 @@
+Task 03 - Index Mapping
+
+Scenario
+The platform is launching an archive index for long-term storage of catalog metadata and needs stricter control over its structure.
+
+Task
+Create an index named streaming_archive.
+
+Requirements
+Configure the following fields:
+- content_id: keyword
+- title: text with a keyword subfield
+- synopsis: text
+- genre: keyword
+- content_type: keyword
+- imdb_rating: scaled_float with a scaling_factor of 10
+- duration_minutes: half_float
+- release_date: date
+- available: boolean
+
+Disable dynamic mappings to prevent undefined fields from being created automatically.
+
+====================
+GET streaming_catalog/_mapping
+
+PUT streaming_archive
+{
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "available": {
+        "type": "boolean"
+      },
+      "cast": {
+        "type": "keyword"
+      },
+      "content_id": {
+        "type": "keyword"
+      },
+      "content_type": {
+        "type": "keyword"
+      },
+      "director": {
+        "type": "keyword"
+      },
+      "duration_minutes": {
+        "type": "half_float"
+      },
+      "genre": {
+        "type": "keyword"
+      },
+      "imdb_rating": {
+        "type": "float"
+      },
+      "maturity_rating": {
+        "type": "keyword"
+      },
+      "release_date": {
+        "type": "date"
+      },
+      "removed": {
+        "type": "boolean"
+      },
+      "studio": {
+        "type": "keyword"
+      },
+      "synopsis": {
+        "type": "text"
+      },
+      "title": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "views_millions": {
+        "type": "double"
+      }
+    }
+  }
+}====================

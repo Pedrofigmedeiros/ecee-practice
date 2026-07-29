@@ -1,0 +1,24 @@
+Task 10 - Boolean Query
+
+Scenario
+A user is looking for available war-themed action movies but does not want removed titles or content from certain studios.
+
+Task
+Run a search against the streaming_catalog index.
+
+Requirements
+The query must:
+- Search for the term war in title and synopsis.
+- Require genre to be equal to action.
+- Require available to be equal to true.
+- Require duration_minutes to be greater than or equal to 90.
+- Exclude documents where removed is equal to true.
+- Exclude content from the following studios: ShadowPeak, BlueWave Docs.
+- Give greater relevance to content directed by Christopher Wren (boost 4).
+- Give greater relevance to titles with maturity_rating equal to R (boost 2).
+- Return the first 10 results.
+- Sort first by relevance and then by imdb_rating in descending order.
+
+====================
+YOUR ANSWER
+====================

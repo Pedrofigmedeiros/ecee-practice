@@ -1,0 +1,24 @@
+Task 08 - Index Template
+
+Scenario
+New archive indices will be created periodically with names matching streaming-archive-*.
+
+Task
+Create a component template named streaming_archive_mappings and an index template named streaming_archive_template.
+
+Requirements
+- The index template must use the pattern streaming-archive-*.
+- The index template must reference the component template streaming_archive_mappings.
+- Configure in the component template:
+  - content_id: keyword
+  - title: text with a keyword subfield
+  - genre: keyword
+  - imdb_rating: float
+  - release_date: date
+- Define the alias streaming-archive on the index template.
+- Set the template priority to 400.
+- Simulate index creation for streaming-archive-2026 and verify the mapping and alias were applied.
+
+====================
+YOUR ANSWER
+====================

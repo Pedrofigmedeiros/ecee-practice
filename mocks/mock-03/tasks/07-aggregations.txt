@@ -1,0 +1,19 @@
+Task 07 - Aggregations
+
+Scenario
+The programming team needs to understand how content released each year is performing across genres.
+
+Task
+Run a search against the streaming_catalog index without returning individual documents.
+
+Requirements
+- Create a date_histogram aggregation named releases_per_year on release_date with a calendar_interval of year.
+- Inside each year bucket, add a sub-aggregation:
+  - average_rating: the average imdb_rating.
+  - total_views: the sum of views_millions.
+  - by_content_type: a terms aggregation on content_type.
+- Return no hits.
+
+====================
+YOUR ANSWER
+====================
